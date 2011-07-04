@@ -1,0 +1,3 @@
+.cell { float: left; position: absolute; background-color: #abcdef; border: solid 0px #fff; width: 10px; height: 10px; }
+body { position: relative; }
+#board { position: relative; }
