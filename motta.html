@@ -12,7 +12,15 @@
     <script src="lib/motta/block.js"></script>
     <script src="lib/motta/pieces.js"></script>
     <script>
-      $(function () { motta.board(20).render($('#board')) });
+      $(function () { 
+        var board = motta.board(20);
+        board.render($('#board'));
+        motta.piece(4).on(board).at(2, 2).render();
+        motta.piece(3).on(board).at(7, 10).render();
+        motta.piece(2).on(board).at(12, 10).render();
+        motta.piece(1).on(board).at(12, 4).render();
+        motta.piece(0).on(board).at(12, 15).render();
+      });
     </script>
   </head>
   <body>
