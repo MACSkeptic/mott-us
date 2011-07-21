@@ -13,7 +13,7 @@
     <script src="lib/motta/pieces.js"></script>
     <script>
       $(function () { 
-        var board = motta.board(20);
+        board = motta.board(20);
         board.render($('#board'));
         motta.piece(4).on(board).at(2, 2).render();
         motta.piece(3).on(board).at(7, 10).render();
