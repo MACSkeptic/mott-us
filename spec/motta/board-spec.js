@@ -7,6 +7,9 @@ function $pla(color) {
     'color': color
   }); 
 }
+function $c(row, column) {
+  return motta.cell( motta.position({x:row, y:column}));
+}
 
 test("all inside", function () {
   var board = motta.board(3);
@@ -71,4 +74,24 @@ test("occupied by", function () {
   ok(!board.occupiedBy(1, 1, blue));
   ok(!board.occupiedBy(0, 0, blue));
   ok(!board.occupiedBy(0, 0, red));
+});
+
+test("all occupied by", function () {
+  var board = motta.board(2),
+      red = $pla('red'),
+      blue = $pla('blue'),
+      yellow = $pla('yellow');
+
+  board.occupy(1, 1, red);
+  board.occupy(0, 0, red);
+  board.occupy(1, 0, blue);
+
+  equals(2, board.allOccupiedBy(red).length);
+  ok(board.allOccupiedBy(red)[0].equals($c(0,0)));
+  ok(board.allOccupiedBy(red)[1].equals($c(1,1)));
+
+  equals(1, board.allOccupiedBy(blue).length);
+  ok(board.allOccupiedBy(blue)[0].equals($c(1,0)));
+
+  equals(0, board.allOccupiedBy(yellow).length);
 });
