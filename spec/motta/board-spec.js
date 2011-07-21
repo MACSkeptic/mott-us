@@ -76,6 +76,22 @@ test("occupied by", function () {
   ok(!board.occupiedBy(0, 0, red));
 });
 
+test("all occupied", function () {
+  var board = motta.board(2),
+      red = $pla('red'),
+      blue = $pla('blue'),
+      yellow = $pla('yellow');
+
+  board.occupy(1, 1, red);
+  board.occupy(0, 0, red);
+  board.occupy(1, 0, blue);
+
+  equals(3, board.allOccupied().length);
+  ok(board.allOccupied()[0].equals($c(0, 0)));
+  ok(board.allOccupied()[1].equals($c(1, 0)));
+  ok(board.allOccupied()[2].equals($c(1, 1)));
+});
+
 test("all occupied by", function () {
   var board = motta.board(2),
       red = $pla('red'),
