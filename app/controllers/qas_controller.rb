@@ -43,6 +43,9 @@ class QasController < ApplicationController
   def create
     @qa = Qa.new(params[:qa])
     @qa.user = current_user
+    interests = params[:interests].sort
+    interests = interests[0...-1] if interests.size > 1
+    @qa.interests = interests
 
     respond_to do |format|
       if @qa.save
@@ -60,9 +63,12 @@ class QasController < ApplicationController
   def update
     @qa = Qa.find(params[:id])
     @qa.user = current_user
+    interests = params[:interests].sort
 
     respond_to do |format|
       if @qa.update_attributes(params[:qa])
+        @qa.interests = interests
+        @qa.save
         format.html { redirect_to @qa, notice: 'Qa was successfully updated.' }
         format.json { head :ok }
       else

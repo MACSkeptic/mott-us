@@ -24,10 +24,11 @@
     <% ['Capybara', 'Cucumber', 'Watir', 'Selenium', 'Webdriver', 'Watin'].
         shuffle.each do |interest| %>
       <label for="<%= interest %>">
-        <input  name="interests"
+        <input  name="interests[]"
                 type="checkbox" 
                 value="<%= interest %>"
                 id="<%= interest %>"
+                <%= @qa.interests.grep(interest).any? ? 'checked' : '' %>
         />
         <%= interest %>
       </label>
