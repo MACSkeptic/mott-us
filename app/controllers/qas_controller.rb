@@ -2,7 +2,7 @@ class QasController < ApplicationController
   # GET /qas
   # GET /qas.json
   def index
-    @qas = Qa.all
+    @qas = current_user.qas
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +25,7 @@ class QasController < ApplicationController
   # GET /qas/new.json
   def new
     @qa = Qa.new
+    @qa.user = current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class QasController < ApplicationController
   # POST /qas.json
   def create
     @qa = Qa.new(params[:qa])
+    @qa.user = current_user
 
     respond_to do |format|
       if @qa.save
@@ -57,6 +59,7 @@ class QasController < ApplicationController
   # PUT /qas/1.json
   def update
     @qa = Qa.find(params[:id])
+    @qa.user = current_user
 
     respond_to do |format|
       if @qa.update_attributes(params[:qa])
