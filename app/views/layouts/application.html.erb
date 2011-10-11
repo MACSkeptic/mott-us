@@ -9,7 +9,11 @@
 <body>
   <div class="header">
     <%= user_signed_in? ? 
-      "You're logged in as #{current_user.name}" :
+      ("You're logged in as #{current_user.name}" +
+        (current_user.admin? ? 
+          ". You are an admin of this system" : 
+          ". You are a regular user")
+      ) :
       "You're not logged in"  %> 
     | 
     <%= link_to "Log Out", :destroy_user_session %>
