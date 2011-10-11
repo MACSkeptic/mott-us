@@ -1,0 +1,17 @@
+* {
+  font-family: calibri, consolas, monaco, verdana, arial;
+  list-style: none;
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}
+
+.all-users {
+  .name { display: inline-block; width: 200px; }
+  .email { display: inline-block; width: 200px; }
+}

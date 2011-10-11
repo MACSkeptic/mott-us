@@ -7,9 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <div class="header">
+    <%= user_signed_in? ? 
+      "You're logged in as #{current_user.name}" :
+      "You're not logged in"  %> 
+    | 
+    <%= link_to "Log Out", :destroy_user_session %>
+    |
+    <%= link_to "Sign Up", :new_user_registration %>
+    |
+    <%= link_to "Log In", :new_user_session %>
+  </div>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
 <%= yield %>
 

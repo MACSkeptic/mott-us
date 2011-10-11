@@ -1,0 +1,43 @@
+<%= form_for(@qa) do |f| %>
+  <% if @qa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@qa.errors.count, "error") %> prohibited this QA from being saved:</h2>
+
+      <ul>
+      <% @qa.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <label>Interests</label><br />
+    <% ['Capybara', 'Cucumber', 'Watir', 'Selenium', 'Webdriver', 'Watin'].
+        shuffle.each do |interest| %>
+      <label for="<%= interest %>">
+        <input  name="interests"
+                type="checkbox" 
+                value="<%= interest %>"
+                id="<%= interest %>"
+        />
+        <%= interest %>
+      </label>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :about %><br />
+    <%= f.text_area :about %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
