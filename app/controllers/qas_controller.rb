@@ -43,7 +43,7 @@ class QasController < ApplicationController
   def create
     @qa = Qa.new(params[:qa])
     @qa.user = current_user
-    interests = params[:interests].sort
+    interests = (params[:interests] || []).sort
     interests = interests[0...-1] if interests.size > 1
     @qa.interests = interests
 

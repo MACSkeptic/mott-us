@@ -8,19 +8,30 @@
 </head>
 <body>
   <div class="header">
-    <%= user_signed_in? ? 
-      ("You're logged in as #{current_user.name}" +
-        (current_user.admin? ? 
-          ". You are an admin of this system" : 
-          ". You are a regular user")
-      ) :
-      "You're not logged in"  %> 
-    | 
-    <%= link_to "Log Out", :destroy_user_session %>
-    |
-    <%= link_to "Sign Up", :new_user_registration %>
-    |
-    <%= link_to "Log In", :new_user_session %>
+    <div class="user-signed-in">
+      <%= user_signed_in? ? 
+        ("You're logged in as #{current_user.name}" +
+          (current_user.admin? ? 
+            ". You are an admin of this system" : 
+            ". You are a regular user")
+        ) :
+        "You're not logged in"  %> 
+    </div>
+    <div class="login-logout-controls">
+      <%= link_to "Log Out", :destroy_user_session %>
+      |
+      <%= link_to "Sign Up", :new_user_registration %>
+      |
+      <%= link_to "Log In", :new_user_session %>
+    </div>
+    <% if user_signed_in? %>
+    <div class="report-issue-controls">
+      <span class="remark">Found a bug? Help us by 
+        <%= link_to "Reporting An Issue", :new_issue %>
+        . You can also <%= link_to "Check Your Open Issues", :issues %>
+      </span>
+    </div>
+    <% end %>
   </div>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>

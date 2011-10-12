@@ -1,4 +1,6 @@
 QaSuperChallenge::Application.routes.draw do
+  resources :issues
+
   resources :qas
 
   devise_for :users
