@@ -29,7 +29,7 @@
     <td><%= link_to 'Edit', edit_qa_path(qa) %></td>
     <% if current_user.admin? %>  
       <td>
-        <%= link_to 'Destroy', qa, confirm: 'Are you sure?', method: :delete %>
+        <%= link_to 'Delete', qa, confirm: 'Are you sure?', method: :delete %>
       </td>
     <% end %>
   </tr>
