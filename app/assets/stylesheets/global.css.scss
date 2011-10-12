@@ -11,13 +11,53 @@ $pale-background: #fbfb88;
 }
 
 body { 
+  color: #eee;
   margin: 0;
   padding: 0;
   margin-bottom: $footer-height;
   height: 100%; 
 
   background: $dark-background url('download.jpg') fixed !important;
+
+  .content {
+    padding: 10px;
+  }
+
+  a, a:visited {
+    color: #abcdef;
+  }
 }
+
+table, table * {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table {
+  width: 100%;
+  td {
+    border: outset 1px #fff;
+    text-align: center;
+  }
+  tr {
+    &:nth-child(2n) {
+      background: lighten($dark-background, 20%);
+    }
+    &:nth-child(2n + 1) {
+      background: lighten($dark-background, 10%);
+    }
+  }
+  th {
+    background: $dark-background;
+    border: solid 1px #aaa;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 14px;
+  }
+  padding: 0;
+  margin: 0;
+  ul { padding: 0; }
+}
+
 .close {
   float: right;
   position: absolute;

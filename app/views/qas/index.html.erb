@@ -1,13 +1,16 @@
-<h1>Listing qas</h1>
+<h1>All QAs</h1>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Email</th>
     <th>About</th>
+    <th>Interests</th>
     <th></th>
     <th></th>
-    <th></th>
+    <% if current_user.admin? %>  
+      <th></th>
+    <% end %>
   </tr>
 
 <% @qas.each do |qa| %>
@@ -15,9 +18,20 @@
     <td><%= qa.name %></td>
     <td><%= qa.email %></td>
     <td><%= qa.about %></td>
+    <td>
+      <ul>
+        <% qa.interests.shuffle.each do |interest| %>
+          <li><%= interest %></li>
+        <% end %>
+      </ul>
+    </td>
     <td><%= link_to 'Show', qa %></td>
     <td><%= link_to 'Edit', edit_qa_path(qa) %></td>
-    <td><%= link_to 'Destroy', qa, confirm: 'Are you sure?', method: :delete %></td>
+    <% if current_user.admin? %>  
+      <td>
+        <%= link_to 'Destroy', qa, confirm: 'Are you sure?', method: :delete %>
+      </td>
+    <% end %>
   </tr>
 <% end %>
 </table>
