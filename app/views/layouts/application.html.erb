@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>QaSuperChallenge</title>
+  <title>ThoughtWorks QA Challenge</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="title">
+    <a href="http://www.thoughtworks.com/" target="_blank" class="logo"><%= image_tag "corporate_logo.png" %></a>
+    <h1><%= link_to "QA Challenge", :root %></h1>
+  </div>
   <div class="header">
     <div class="user-signed-in">
-      <%= user_signed_in? ? 
-        ("You're logged in as #{current_user.name}" +
+      <%=raw user_signed_in? ? 
+        ("You're logged in as <span class=\"current-user\">#{current_user.name}</span>" +
           (current_user.admin? ? 
             ". You are an admin of this system" : 
             ". You are a regular user")
@@ -24,19 +28,24 @@
       |
       <%= link_to "Log In", :new_user_session %>
     </div>
-    <% if user_signed_in? %>
-    <div class="report-issue-controls">
-      <span class="remark">Found a bug? Help us by 
-        <%= link_to "Reporting An Issue", :new_issue %>
-        . You can also <%= link_to "Check Your Open Issues", :issues %>
-      </span>
-    </div>
-    <% end %>
   </div>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
-<%= yield %>
-
+  <div class="notice"><%= notice %></div>
+  <div class="alert"><%= alert %></div>
+  <script>_TW$.notice('.notice')</script> 
+  <script>_TW$.notice('.alert')</script> 
+<div class="content">
+  <%= yield %>
+</div>
+<div class="footer">
+  <% if user_signed_in? %>
+  <div class="report-issue-controls">
+    <span class="remark">Found a bug? Help us by 
+      <%= link_to "Reporting An Issue", :new_issue %>
+      . You can also <%= link_to "Check Your Open Issues", :issues %>
+    </span>
+  </div>
+  <% end %>
+</div>
 </body>
 </html>

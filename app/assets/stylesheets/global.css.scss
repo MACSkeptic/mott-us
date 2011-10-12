@@ -1,6 +1,127 @@
+$dark-background: #222;
+$light-background: #f8f8f8;
+$footer-height: 40px;
+$header-height: 30px;
+$title-height: 80px;
+$pale-background: #fbfb88;
+
 * {
   font-family: calibri, consolas, monaco, verdana, arial;
   list-style: none;
+}
+
+body { 
+  margin: 0;
+  padding: 0;
+  margin-bottom: $footer-height;
+  height: 100%; 
+
+  background: $dark-background url('download.jpg') fixed !important;
+}
+.close {
+  float: right;
+  position: absolute;
+  right: 0px;
+}
+.notice, .alert {
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 0px;
+  background: $pale-background;
+  text-align: center;
+  display: none;
+}
+
+.title {
+  background: $dark-background;
+  height: $title-height;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  .logo {
+    height: 27px;
+    display: block;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+
+  a:hover {
+    background: inherit;
+  }
+  h1 {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+    display: block;
+    a, a:visited, a:hover {
+      background: inherit;
+      margin: 0;
+      padding: 0;
+      padding-left: 10px;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+    }
+  }
+}
+
+.header {
+  height: $header-height;
+  background: $dark-background;
+  width: 100%;
+  color: #fff;
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  border-bottom: outset 5px #666;
+  border-top: outset 2px #666;
+
+  line-height: $header-height;
+
+  .user-signed-in {
+    float: left;
+    margin-left: 10px;
+
+    .current-user {
+      color: $pale-background;
+      font-weight: bolder;
+      text-decoration: underline;
+    }
+  }
+  .login-logout-controls {
+    float: right;
+    margin-right: 10px;
+  }
+  a, a:visited {
+    color: #abcdef;
+  }
+}
+
+.footer {
+  line-height: $footer-height;
+  height: $footer-height;
+  width: 100%;
+  background: $dark-background;
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+  border-top: outset 5px #666;
+
+  .report-issue-controls {
+    float: right;
+    margin-right: 10px;
+  }
+
+  a, a:visited {
+    color: #abcdef;
+  }
 }
 
 .notice {
