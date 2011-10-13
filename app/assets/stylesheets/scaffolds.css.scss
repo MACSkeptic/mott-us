@@ -1,3 +1,9 @@
+$dark-background: #222;
+$light-background: #f8f8f8;
+$footer-height: 40px;
+$header-height: 30px;
+$title-height: 80px;
+$pale-background: #fbfb88;
 body {
   background-color: #fff;
   font-family: verdana, arial, helvetica, sans-serif;
@@ -13,14 +19,13 @@ pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px; }
-
-a {
-  color: #000;
-  &:visited {
-    color: #666; }
-  &:hover {
-    color: #fff;
-    background-color: #000; } }
+.field_with_errors {
+  padding: 0;
+  margin: 0;
+  padding-left: 5px;
+  border-left: solid 5px red;
+  display: inline-block;
+}
 
 div {
   &.field, &.actions {
@@ -29,18 +34,13 @@ div {
 #notice {
   color: green; }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table; }
-
 #error_explanation {
   width: 450px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: $dark-background;
   h2 {
     text-align: left;
     font-weight: bold;

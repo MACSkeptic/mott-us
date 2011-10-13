@@ -39,6 +39,6 @@
     <%= f.text_area :about %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit (@qa.id.nil? ? "Create QA" : "Update QA") %>
   </div>
 <% end %>

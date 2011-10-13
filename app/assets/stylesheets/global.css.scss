@@ -34,25 +34,27 @@ body {
       display: inline-block;
       margin-top: 20px;
       margin-right: 20px;
-      border: outset 1px #aaa;
-      border-radius: 40px;
-      line-height: 100px;
       text-align: center;
-      font-size: 40px;
-      opacity: 0.8;
-      background: $dark-background;
       a, a:visited, a:hover {
+        background: $dark-background;
+        opacity: 0.9;
+        border: solid 1px #aaa;
+        border-radius: 40px;
         width: 400px;
         padding: 10px;
         display: block;
-        height: 100px;
-        border-radius: 40px;
+        height: 80px;
+        line-height: 80px;
+        font-size: 35px;
         color: #fff;
         text-decoration: none;
-        opacity: 1.0;
-      }
-      &:hover {
-        border-color: #fff;
+        &:hover {
+          border-color: #fff;
+          background: lighten($dark-background, 20%);
+        }
+        &:active {
+          background: darken($dark-background, 20%);
+        }
       }
     }
   }
@@ -63,6 +65,7 @@ table, table * {
   border-spacing: 0;
 }
 table {
+  color: white;
   width: 100%;
   td {
     border: outset 1px #fff;
@@ -70,11 +73,13 @@ table {
   }
   tr {
     &:nth-child(2n) {
-      background: lighten($dark-background, 20%);
+      background: white;
+      color: black;
       opacity: 0.9 !important;
     }
     &:nth-child(2n + 1) {
-      background: lighten($dark-background, 10%);
+      background: darken(white, 15%);
+      td { color: black; }
       opacity: 0.9 !important;
     }
   }
@@ -88,12 +93,14 @@ table {
   padding: 0;
   margin: 0;
   ul { padding: 0; }
+  a, a:visited { color: darken(#abcdef, 50%) !important; }
 }
 
-.close {
+.close, .close:visited, .close:hover {
   float: right;
   position: absolute;
-  right: 0px;
+  right: 10px;
+  color: #222;
 }
 .notice, .alert {
   margin: 0;

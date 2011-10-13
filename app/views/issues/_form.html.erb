@@ -16,12 +16,12 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :severity %><br />
+    <%= f.select :severity, options_for_select([["Select Severity", ""], "High", "Medium", "Low"]) %>
   </div>
   <div class="field">
-    <%= f.label :severity %><br />
-    <%= f.text_field :severity %>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
   </div>
   <div class="actions">
     <%= f.submit %>
